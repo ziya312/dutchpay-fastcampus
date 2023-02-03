@@ -2,3 +2,8 @@
   font-family: "Mabook";
   src: url("./fonts/Mabook.ttf");
 }
+
+#root {
+  background-color: #ededed;
+  height: 100vh;
+}
