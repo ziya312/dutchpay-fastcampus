@@ -1,20 +1,23 @@
-import { Container, Form, Row, Button, Col } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { groupNameState } from "../state/groupName";
 import { useSetRecoilState } from "recoil";
 import { useState } from "react";
-import { CenteredOverlayForm } from "./CenteredOverlayForm";
-import styled from "styled-components";
+import { CenteredOverlayForm } from "../shared/CenteredOverlayForm";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "../routes";
 
 export const CreateGroup = () => {
   const setGroupName = useSetRecoilState(groupNameState);
   const [validated, setValidated] = useState(false);
   const [validGroupName, setVaildGroupName] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.currentTarget;
     if (form.checkValidity()) {
       setVaildGroupName(true);
+      navigate(ROUTES.ADD_MEMBERS);
     } else {
       e.stopPropagation();
       setVaildGroupName(false);
