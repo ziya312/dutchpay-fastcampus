@@ -3,7 +3,16 @@
   src: url("./fonts/Mabook.ttf");
 }
 
+@font-face {
+  font-family: "GmarketSans";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 #root {
   background-color: #ededed;
-  height: 100vh;
+  height: 100%;
+  font-family: "GmarketSans";
 }
