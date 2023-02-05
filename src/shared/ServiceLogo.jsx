@@ -6,7 +6,7 @@ export const ServiceLogo = () => {
 
 const StyledLogo = styled.h1`
   font-weight: 400;
-  font-size: 72px;
+  font-size: 6rem;
   font-family: "Mabook";
   text-align: center;
   color: #ff7a00;

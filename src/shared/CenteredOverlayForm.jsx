@@ -48,7 +48,7 @@ const StyledQuestion = styled.h2`
   overflow-wrap: break-word;
   word-break: keep-all;
   font-weight: 700;
-  font-size: 36px;
+  font-size: 2.25rem;
   line-height: 160%;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -62,6 +62,9 @@ const StyledCentralizedRow = styled(Row)`
   justify-content: center;
   float: none;
   margin: 0 auto;
+  input {
+    height: 60px;
+  }
 `;
 
 const StyledSubmitButton = styled(Button).attrs({ type: "submit" })`
@@ -70,7 +73,7 @@ const StyledSubmitButton = styled(Button).attrs({ type: "submit" })`
   border: none;
   width: 175px;
   height: 60px;
-  font-size: 24px;
+  font-size: 1.5rem;
   &:hover {
     background: #ff7a00;
     filter: brightness(130%);
