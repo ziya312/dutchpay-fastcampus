@@ -90,7 +90,7 @@ export const SettlementSummary = () => {
         <div>
           <StyledSummaryDiv>
             <span>
-              {groupMembersCount}명이서 총 {totalExpenseAmount}원 지출
+              {groupMembersCount}명 - 총 {totalExpenseAmount}원 지출
             </span>
             <br />
             <span>한 사람 당 {splitAmount}원</span>
