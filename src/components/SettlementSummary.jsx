@@ -77,13 +77,12 @@ export const SettlementSummary = () => {
     )
   );
   const groupMembersCount = members.length;
-  const splitAmount = totalExpenseAmount / groupMembersCount;
+  const splitAmount = parseInt(totalExpenseAmount / groupMembersCount);
   const minimumTransaction = calculateMinimumTransaction(
     expenses,
     members,
     splitAmount
   );
-
   return (
     <StyledWrapper>
       <StyledTitle>2. 정산은 이렇게!</StyledTitle>
