@@ -3,6 +3,10 @@ import { expensesState } from "../state/expenses";
 import { groupMembersState } from "../state/groupMembers";
 import styled from "styled-components";
 import { StyledTitle } from "./AddExpenseForm";
+import { Button } from "react-bootstrap";
+import { toPng } from "html-to-image";
+import { useRef } from "react";
+import { Download } from "react-bootstrap-icons";
 
 const calculateMinimumTransaction = (expenses, members, amountPerPerson) => {
   const minTransactions = [];
@@ -69,7 +73,7 @@ const calculateMinimumTransaction = (expenses, members, amountPerPerson) => {
 export const SettlementSummary = () => {
   const expenses = useRecoilValue(expensesState);
   const members = useRecoilValue(groupMembersState);
-
+  const wrapperElement = useRef(null);
   const totalExpenseAmount = parseInt(
     expenses.reduce(
       (prevAmount, curExpense) => prevAmount + parseInt(curExpense.amount),
@@ -83,8 +87,27 @@ export const SettlementSummary = () => {
     members,
     splitAmount
   );
+
+  const exportToImage = () => {
+    if (wrapperElement.current == null) {
+      return;
+    }
+    toPng(wrapperElement.current, {
+      filter: (node) => node.tagName !== "BUTTON",
+    })
+      .then((dataUrl) => {
+        const link = document.createElement("a");
+        link.download = "settlement-summary.png";
+        link.href = dataUrl;
+
+        link.click();
+      })
+      .catch((err) => {
+        console.error("opps, something went wrong!", err);
+      });
+  };
   return (
-    <StyledWrapper>
+    <StyledWrapper ref={wrapperElement}>
       <StyledTitle>2. 정산은 이렇게!</StyledTitle>
       {totalExpenseAmount > 0 && groupMembersCount > 0 && (
         <div>
@@ -105,6 +128,9 @@ export const SettlementSummary = () => {
               </li>
             ))}
           </StyledUl>
+          <StyledSaveBtn data-testid="btn-download" onClick={exportToImage}>
+            <Download />
+          </StyledSaveBtn>
         </div>
       )}
     </StyledWrapper>
@@ -120,6 +146,7 @@ const StyledWrapper = styled.div`
   text-align: center;
   font-size: 20px;
   font-weight: 500;
+  position: relative;
 `;
 
 const StyledSummaryDiv = styled.div`
@@ -138,5 +165,20 @@ const StyledUl = styled.ul`
     50% {
       opacity: 0;
     }
+  }
+`;
+
+const StyledSaveBtn = styled(Button)`
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: black;
+  top: 16px;
+  right: 20px;
+  position: absolute;
+  &:hover &:active {
+    background: none;
+    color: black;
+    border: none;
   }
 `;
