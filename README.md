@@ -5,7 +5,7 @@
 
 ## 화면구성
 ### [그룹이름 입력]
-![image](https://user-images.githubusercontent.com/92806642/217833029-59e89ddd-2edc-4216-879c-5d077adaf801.png)
+![image](https://user-images.githubusercontent.com/92806642/217836390-4ccc5b31-b740-4995-8ebf-a88d20d779be.png)
 ### [멤버 입력 전]
 ![image](https://user-images.githubusercontent.com/92806642/217833343-752e6181-b979-4e7f-b77a-a39b6be9e0b5.png)
 ### [멤버 입력 후]
