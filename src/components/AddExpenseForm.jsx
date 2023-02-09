@@ -184,5 +184,5 @@ const StyledWrapper = styled.div`
   padding: 50px;
   background: #ffdcbb;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
-  border-radius: 12px;
+  border-radius: 30px;
 `;
