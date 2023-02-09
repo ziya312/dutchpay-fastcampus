@@ -9,22 +9,22 @@ import { ServiceLogo } from "../shared/ServiceLogo";
 
 export const ExpenseMain = () => {
   return (
-    <Container fluid>
+    <StyledMainContatiner fluid>
       <Row>
-        <Col xs={12} sm={5} md={4}>
+        <Col xs={12} lg={5}>
           <LeftPane />
         </Col>
         <Col>
           <RightPane />
         </Col>
       </Row>
-    </Container>
+    </StyledMainContatiner>
   );
 };
 
 const LeftPane = () => {
   return (
-    <Container>
+    <StyledRLWrapper>
       <StyledGapRow>
         <Row>
           <ServiceLogo />
@@ -36,7 +36,7 @@ const LeftPane = () => {
           <SettlementSummary />
         </Row>
       </StyledGapRow>
-    </Container>
+    </StyledRLWrapper>
   );
 };
 
@@ -44,24 +44,28 @@ const RightPane = () => {
   const groupName = useRecoilValue(groupNameState);
 
   return (
-    <StyledRightPaneWrapper>
+    <StyledRLWrapper>
       <Row>
         <StyledGroupName>{groupName}</StyledGroupName>
       </Row>
       <Row>
         <ExpenseTable />
       </Row>
-    </StyledRightPaneWrapper>
+    </StyledRLWrapper>
   );
 };
 
-const StyledGapRow = styled(Row)`
-  gap: 5vh;
-  padding-top: 100px;
-  justify-content: center;
+const StyledMainContatiner = styled(Container)`
+  padding: 0 4vw;
 `;
-const StyledRightPaneWrapper = styled(Container)`
-  padding: 100px 32px 100px 32px;
+
+const StyledRLWrapper = styled(Container)`
+  padding: 96px 2vw;
+`;
+
+const StyledGapRow = styled(Row)`
+  gap: 3.5vh;
+  justify-content: center;
 `;
 
 const StyledGroupName = styled.h2`

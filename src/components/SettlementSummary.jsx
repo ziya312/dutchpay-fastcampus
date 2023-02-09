@@ -173,7 +173,7 @@ const StyledSaveBtn = styled(Button)`
   border: none;
   font-size: 24px;
   color: black;
-  top: 16px;
+  top: 348px;
   right: 20px;
   position: absolute;
   &:hover &:active {
