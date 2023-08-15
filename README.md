@@ -1,7 +1,5 @@
 # 더치페이 서비스
 
-## [🔗 링크](https://staging.d1viiq2bzxdbdh.amplifyapp.com/group)
-
 
 ## 화면구성
 ### [그룹이름 입력]
